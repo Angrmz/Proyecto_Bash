@@ -1,5 +1,16 @@
 #!/bin/bash
 
+Arreglo=(SCRUM X.P Kanban Crystal)
+Arreglo_1=(Cascada Espiral Modelo_V)
+
+for Arreglo in ${Arreglo[@]} ; do
+  touch $Arreglo.inf
+done
+
+for Arreglo_1 in ${Arreglo_1[@]} ; do
+  touch $Arreglo_1.inf
+done
+
 Menu_1(){
     echo "Bienvenido a la guía rápida de Agile, para continuar seleccione un tema:"
     echo "1. SCRUM"
