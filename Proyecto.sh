@@ -84,6 +84,12 @@ Submenu(){
       case $opcion in
           1)
               echo
+              echo " - AGREGAR INFORMACION - "
+              read -p "Ingrese el identificador del concepto: " identificador
+              read -p "Ingrese la definicion del concepto: " definicion
+              echo
+              echo "[$identificador].- $definicion" >> "$1.inf"
+              echo
               Continuar $1
               ;;
           2)
