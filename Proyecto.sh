@@ -30,6 +30,39 @@ Menu_2(){
     echo
 }
 
+Submenu(){
+  echo Usted esta en la sección $1 seleccione la opción que desea utilizar.
+  echo "1. Agregar informacion"
+  echo "2. Buscar"
+  echo "3. Eliminar informacion"
+  echo "4. Leer base de informacion"
+  echo "5. Volver a menu anterior o salir"
+  echo
+  read -p "Ingrese una opcion: " opcion
+      case $opcion in
+          1)
+              echo
+
+              ;;
+          2)
+              echo
+
+              ;;
+          3)
+              echo
+              ;;
+          4)
+              echo
+              ;;
+          5)
+              echo
+              ;;
+          *)
+              Submenu
+              ;;
+      esac
+}
+
 opc=0
 case $1 in
   -a )
