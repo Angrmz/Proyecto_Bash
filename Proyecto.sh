@@ -72,15 +72,19 @@ case $1 in
   do
       case $opc in
           1)
+              Submenu SCRUM
               Menu_1
               ;;
           2)
+              Submenu X.P
               Menu_1
               ;;
           3)
+              Submenu Kanban
               Menu_1
               ;;
           4)
+              Submenu Crystal
               Menu_1
               ;;
       esac
@@ -96,12 +100,15 @@ case $1 in
   do
       case $opc in
           1)
+              Submenu Cascada
               Menu_2
               ;;
-          2)
+          2)  
+              Submenu Espiral
               Menu_2
               ;;
           3)
+              Submenu Modelo_V
               Menu_2
               ;;
       esac
