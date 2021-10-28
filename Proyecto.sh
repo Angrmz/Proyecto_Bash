@@ -84,20 +84,23 @@ Submenu(){
       case $opcion in
           1)
               echo
-
+              Continuar $1
               ;;
           2)
               echo
-
+              Continuar $1
               ;;
           3)
               echo
+              Continuar $1
               ;;
           4)
               echo
+              Continuar $1
               ;;
           5)
               echo
+              Continuar_1
               ;;
           *)
               Submenu
