@@ -94,10 +94,32 @@ Submenu(){
               ;;
           2)
               echo
+              echo " - BUSCAR INFORMACION - "
+              read -p "Ingrese el identificador concepto a buscar: " buscar
+              if [[ `grep "$buscar" -c "$1.inf"` -ge 1 ]]; then
+                echo "Identificador se encontro"
+                grep $buscar "$1.inf"
+                echo
+              else
+                echo "Identificador no se encontro"
+                echo
+              fi
               Continuar $1
               ;;
           3)
               echo
+              echo " - ELIMINAR INFORMACION - "
+              read -p "Ingrese el identificador concepto a eliminar: " eliminar
+              if [[ `grep "$eliminar" -c "$1.inf"` -ge 1 ]]; then
+                aux=$(grep -n -m 1 $eliminar $1.inf | sed  's/\([0-9]*\).*/\1/')
+                ed -s $1.inf <<!; $aux d; w
+!
+                echo "Identificador eliminado"
+                echo
+              else
+                echo "Identificador no se encontro"
+                echo
+              fi
               Continuar $1
               ;;
           4)
