@@ -44,6 +44,34 @@ Continuar(){
   fi 
 }
 
+Continuar_1(){
+  opc1=0
+  echo "Opciones:"
+  echo "1. Volver al menu anterior"
+  echo "2. Terminar la ejecucion"
+    read -p "Ingrese una opcion: " opc1
+  echo
+  if [[ opc1 -eq 1 ]]; then
+    Menu_1
+  else
+    exit
+  fi
+}
+
+Continuar_2(){
+  opc1=0
+  echo "Opciones:"
+  echo "1. Volver al menu anterior"
+  echo "2. Terminar la ejecucion"
+    read -p "Ingrese una opcion: " opc1
+  echo
+  if [[ opc1 -eq 1 ]]; then
+    Menu_2
+  else
+    exit
+  fi
+}
+
 Submenu(){
   echo Usted esta en la sección $1 seleccione la opción que desea utilizar.
   echo "1. Agregar informacion"
