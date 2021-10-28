@@ -144,6 +144,79 @@ Submenu(){
       esac
 }
 
+
+Submenu_1(){
+  echo Usted esta en la sección $1 seleccione la opción que desea utilizar.
+  echo "1. Agregar informacion"
+  echo "2. Buscar"
+  echo "3. Eliminar informacion"
+  echo "4. Leer base de informacion"
+  echo "5. Volver a menu anterior o salir"
+  echo
+  read -p "Ingrese una opcion: " opcion
+      case $opcion in
+          1)
+              echo
+              echo " - AGREGAR INFORMACION - "
+              read -p "Ingrese el identificador del concepto: " identificador
+              read -p "Ingrese la definicion del concepto: " definicion
+              echo
+              echo "[$identificador].- $definicion" >> "$1.inf"
+              echo
+              Continuar $1
+              ;;
+          2)
+              echo
+              echo " - BUSCAR INFORMACION - "
+              read -p "Ingrese el identificador concepto a buscar: " buscar
+              if [[ `grep "$buscar" -c "$1.inf"` -ge 1 ]]; then
+                echo "Identificador se encontro"
+                grep $buscar "$1.inf"
+                echo
+              else
+                echo "Identificador no se encontro"
+                echo
+              fi
+              Continuar $1
+              ;;
+          3)
+              echo
+              echo " - ELIMINAR INFORMACION - "
+              read -p "Ingrese el identificador concepto a eliminar: " eliminar
+              if [[ `grep "$eliminar" -c "$1.inf"` -ge 1 ]]; then
+                aux=$(grep -n -m 1 $eliminar $1.inf | sed  's/\([0-9]*\).*/\1/')
+                ed -s $1.inf <<!; $aux d; w
+!
+                echo "Identificador eliminado"
+                echo
+              else
+                echo "Identificador no se encontro"
+                echo
+              fi
+              Continuar $1
+              ;;
+          4)
+              echo
+              echo " - LEER INFORMACION - "
+              if [[ -s "$1.inf" ]]; then
+                cat "$1.inf"
+                echo
+              else
+                echo "Informacion no encontrada"
+                echo
+              fi
+              Continuar $1
+              ;;
+          5)
+              echo
+              Continuar_2
+              ;;
+          *)
+              Submenu
+              ;;
+      esac
+}
+
 opc=0
 case $1 in
   -a )
@@ -181,15 +254,15 @@ case $1 in
   do
       case $opc in
           1)
-              Submenu Cascada
+              Submenu_1 Cascada
               Menu_2
               ;;
           2)  
-              Submenu Espiral
+              Submenu_1 Espiral
               Menu_2
               ;;
           3)
-              Submenu Modelo_V
+              Submenu_1 Modelo_V
               Menu_2
               ;;
       esac
