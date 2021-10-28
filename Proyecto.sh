@@ -124,6 +124,14 @@ Submenu(){
               ;;
           4)
               echo
+              echo " - LEER INFORMACION - "
+              if [[ -s "$1.inf" ]]; then
+                cat "$1.inf"
+                echo
+              else
+                echo "Informacion no encontrada"
+                echo
+              fi
               Continuar $1
               ;;
           5)
